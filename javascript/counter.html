@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Counting with a local variable.</p>
+
+<button type="button" onclick="increase()">Increment!</button>
+<button type="button" onclick="reset()">Reset</button>
+<button type="button" onclick="decrease()">Decrement</button>
+
+<p id="demo">0</p>
+
+<script>
+var counter = 0;
+var add = (function () {
+  
+  return function () {return counter += 1;}
+})();
+var remove = (function () {
+  
+  return function () {return counter -= 1;}
+})();
+
+
+function increase(){
+  document.getElementById("demo").innerHTML = add();
+}
+function decrease(){
+  document.getElementById("demo").innerHTML = remove();
+}
+
+function reset(){
+   counter=0;
+   document.getElementById("demo").innerHTML = 0;
+}
+
+</script>
+
+</body>
+</html>
