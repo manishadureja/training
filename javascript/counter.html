@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <body>
+<style>
+div {
+  background-color: lightblue;
+}
+</style>
 
-<p>Counting with a local variable.</p>
+<div background-color='gray'>
+<h2 align="center">Counter</h2>
 
-<button type="button" onclick="increase()">Increment!</button>
+<div align="center">
+<button type="button" onclick="increase()">Increment</button>
 <button type="button" onclick="reset()">Reset</button>
 <button type="button" onclick="decrease()">Decrement</button>
-
-<p id="demo">0</p>
-
+</div>
+<h2 id="counter" align="center">0</h2>
+</div>
 <script>
 var counter = 0;
 var add = (function () {
@@ -23,15 +30,15 @@ var remove = (function () {
 
 
 function increase(){
-  document.getElementById("demo").innerHTML = add();
+  document.getElementById("counter").innerHTML = add();
 }
 function decrease(){
-  document.getElementById("demo").innerHTML = remove();
+  document.getElementById("counter").innerHTML = remove();
 }
 
 function reset(){
    counter=0;
-   document.getElementById("demo").innerHTML = 0;
+   document.getElementById("counter").innerHTML = 0;
 }
 
 </script>
