@@ -11,10 +11,19 @@
 
 <div id='colorflipper' align="center">
 <button  type="button"
-onclick="document.body.style.background = 'green'">
+onclick="setBg();">
 Click me</button>
 
 </div>
+<script>
+
+  function setBg() {  
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+   document.body.style.background = "rgb(" + x + "," + y + "," + z + ")";
+ }  
+</script>
 
 </body>
 </html> 
