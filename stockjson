@@ -1,4 +1,4 @@
-export const stockData = [
+[
   {
     company: "Twitter Inc",
     ticker: "TWTR",
