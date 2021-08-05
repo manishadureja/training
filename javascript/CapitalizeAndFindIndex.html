@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: lightgrey;
+        color: blue;
+      }
+
+      h1 {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="align-content: center">
+      <label for="inputelements">Enter comma separated Strings:</label>
+      <input
+        type="text"
+        id="inputelements"
+        size="40"
+        maxlength="100"
+        name="inputelements"
+        placeholder="Comma separated Strings."
+      />
+      <input
+        type="button"
+        id="inputStrings"
+        name="inputStrings"
+        value="Capitalize Elements"
+        onclick="capitalizeArrayElements(inputelements.value)"
+      /><br /><br />
+      <span id="capitalized"></span><br />
+      <span id="capitalizedfirst"></span><br />
+
+      <span id="lowerCaseArray" style="color: rgb(38, 0, 255)"></span
+      ><br /><br />
+      <input type="text" id="indexElement" name="indexElement" />
+      <button onclick="showIndex(inputelements.value,indexElement.value)">
+        Show Index</button
+      ><br />
+      <span id="indexedItem"></span>
+    </div>
+
+    <script>
+      function showIndex(inputArray, inputElement) {
+        var inputArrayElements = inputArray.trim().split(",");
+        var index = -1;
+        for (let i = 0; i < inputArrayElements.length; i++) {
+          let value = inputArrayElements[i].trim();
+          if (value === inputElement) {
+            index = i;
+            break;
+          }
+        }
+        if (index >= 0) {
+          document.getElementById("indexedItem").innerHTML =
+            "<br> Index Of : " + inputElement + " is :" + index;
+        } else {
+          document.getElementById("indexedItem").innerHTML =
+            "<br>" + inputElement + " not found in the array ";
+        }
+      }
+      function capitalizeArrayElements(inputArray) {
+        var inputArrayElements = inputArray.trim().split(",");
+        var capitalizedArray = inputArrayElements.map((item) => {
+          return item.toUpperCase();
+        });
+        var WordCaseElements = [];
+        for (var i = 0; i < inputArrayElements.length; i++) {
+          WordCaseElements[i] =
+            inputArrayElements[i].trim().toLowerCase().charAt(0) +
+            inputArrayElements[i].trim().toLowerCase().charAt(1).toUpperCase() +
+            inputArrayElements[i].trim().toLowerCase().slice(2);
+        }
+        var lowerCaseArray = inputArrayElements.map((item) => {
+          return item.toLowerCase();
+        });
+
+        document.getElementById("capitalized").innerHTML =
+          "UpperCase Array is : " + capitalizedArray;
+        document.getElementById("capitalizedfirst").innerHTML =
+          "Word Case Array is : " + WordCaseElements.join(",");
+        document.getElementById("lowerCaseArray").innerHTML =
+          "Lower Case Array is : " + lowerCaseArray;
+      }
+    </script>
+  </body>
+</html>

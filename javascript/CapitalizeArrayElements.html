@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: lightgrey;
+      color: blue;
+    }
+
+    h1 {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="align-content: center;">
+    <label for="inputelements">Enter comma separated Strings:</label>
+    <input type="text" id="inputelements" size="40" maxlength="100" name="inputelements"
+      placeholder="Comma separated Strings.">
+    <input type="button" id="inputStrings" name="inputStrings" value='Capitalize Elements'
+      onclick="capitalizeArrayElements(inputelements.value)"><br><br>
+    <span id="capitalized"></span>
+    <span id="error" style="color: red;"></span>
+
+  </div>
+
+  <script>
+
+    function capitalizeArrayElements(inputArray) {
+      let isNan = false;
+      var capitalizedArray = inputArray.split(',').map((item) => {
+        return item.toUpperCase();
+      });
+
+
+        document.getElementById("error").innerHTML = "";
+        document.getElementById("capitalized").innerHTML = "Output is : " + capitalizedArray;
+      }
+    
+
+
+
+  </script>
+
+</body>
+
+</html>

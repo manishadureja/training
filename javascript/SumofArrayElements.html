@@ -1,0 +1,59 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: lightgrey;
+      color: blue;
+    }
+    
+    h1 {
+      background-color: black;
+      color: white;
+    }
+    </style>
+</head>
+<body>
+  <div style="align-content: center;">
+    <label for="inputelements">Enter comma separated numbers:</label>
+    <input type="text" id="inputelements" size="60" maxlength="40" name="inputelements" placeholder="Comma separated numbers.">
+    <input type="button" id="sumofelements" name="sumofelements" value='Get Sum'
+      onclick="sumofArrayElements(inputelements.value)"><br><br>
+    <span id="sum"></span>
+    <span id="error" style="color: red;"></span>
+
+  </div>
+
+  <script>
+
+    function sumofArrayElements(inputArray) {
+      let isNan = false;
+      var numArray = inputArray.split(',').map((item)=> {
+        if (isNaN(item)) {
+          isNan = true;
+        } else {
+          return (
+            parseInt(item, 10)
+
+          );
+        }
+      });
+      if (!isNan) {
+        let result = numArray.reduce(function (a, b) {
+          return a + b;
+        });
+
+        document.getElementById("error").innerHTML = "";
+        document.getElementById("sum").innerHTML = "Output is : "+result;
+      } else {
+        document.getElementById("sum").innerHTML = "";
+        document.getElementById("error").innerHTML = "Invalid inputs. Please enter comma separated numbers (1,2,3,4...)";
+      }
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>
